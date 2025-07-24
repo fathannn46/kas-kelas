@@ -144,8 +144,8 @@
       "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"
     ];
 
-    let pembayaran = {}; db.ref("pembayaran").on("value", s => { pembayaran = s.val() || {}; renderTabel(); renderRiwayat(); hitungSaldo(); });
-    let pengeluaran = []; db.ref("pengeluaran").on("value", s => { pengeluaran = s.val() || []; renderRiwayat(); hitungSaldo(); });
+    let pembayaran = {}; firebase.database().ref("pembayaran").on("value", snapshot => { pembayaran = snapshot.val() || {}; renderTabel(); renderRiwayat(); hitungSaldo(); });
+    let pengeluaran = []; firebase.database().ref("pengeluaran").on("value", snapshot => { pengeluaran = snapshot.val() || []; renderRiwayat(); hitungSaldo(); });
 
     const siswaSelect = document.getElementById("siswaSelect");
     const bulanSelect = document.getElementById("bulanSelect");
